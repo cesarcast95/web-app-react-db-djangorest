@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  db:
+    container_name: db_server
+    image: mysql:8.0
+    platform: linux/amd64
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - platform
+  django_api:
+    container_name: api_server
+    hostname: platform_apiserver
+    build: ./server
+    volumes:
+      - ./server:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - platform
+    depends_on:
+      - db
+  react_app:
+    container_name: front_client
+    hostname: platform_appfront
+    build: ./client
+    volumes:
+      - ./client:/app
+    ports:
+      - "3000:3000"
+    networks:
+      - platform
+    links:
+      - django_api
+
+
+
+networks:
+  platform:
+    name: platform
