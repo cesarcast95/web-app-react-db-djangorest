@@ -12,7 +12,7 @@ COPY requirements.txt .
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN python3 manage.py collectstatic --noinput
+
 
 # Expose port 8000
 EXPOSE 8000

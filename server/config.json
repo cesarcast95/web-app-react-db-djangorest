@@ -1,1 +1,17 @@
-config/local_config.json
+{
+    "settings": {
+      "project": "server",
+      "env": "local",
+      "debug": true,
+      "allowed_hosts": [
+        "*"
+      ]
+    },
+   "mysql": {
+      "user": "admin",
+      "password": "adminpassword",
+      "dbname": "database",
+      "host": "db",
+      "port": 3306
+    }
+  }
