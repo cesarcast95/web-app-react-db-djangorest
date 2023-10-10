@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import json
+import retry
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -84,6 +85,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+@retry.retry(exceptions=Exception, tries=5, delay=2)
+def connect_to_database():
+    from django.db import connection
+    try:
+        connection.connect()
+    except Exception as e:
+        # Puedes agregar código de registro o manejo de excepciones aquí
+        raise e
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -94,6 +104,9 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+# Llama a la función para conectar a la base de datos
+connect_to_database()
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
