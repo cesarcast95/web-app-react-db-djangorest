@@ -18,4 +18,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Run the command to start the server
-CMD ["/app/wait-for-it.sh", "db:3306", "--", "sh", "-c", "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"]
+CMD ["/app/wait-for-it.sh", "0.0.0.0:3306", "--", "sh", "-c", "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"]

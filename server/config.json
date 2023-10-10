@@ -11,7 +11,7 @@
       "user": "admin",
       "password": "adminpassword",
       "dbname": "database",
-      "host": "db",
+      "host": "localhost",
       "port": 3306
     }
   }

@@ -1,0 +1,4 @@
+FROM mysql:latest
+
+# Copia el archivo SQL al contenedor
+COPY repair.sql /docker-entrypoint-initdb.d/repair.sql
