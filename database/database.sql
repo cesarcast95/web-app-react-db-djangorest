@@ -1,5 +1,5 @@
 create database if not exists database;
-#USE database;
-#REPAIR TABLE django_content_type;
 grant all privileges on *.* to 'admin'@'%';
+ALTER USER 'admin'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'adminpassword';
+
         

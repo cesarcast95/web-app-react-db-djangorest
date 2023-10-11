@@ -100,8 +100,8 @@ DATABASES = {
         'NAME': env['mysql']['dbname'],
         'USER': env['mysql']['user'],
         'PASSWORD': env['mysql']['password'],
-        'HOST': 'db',
-        'PORT': '3306',
+        'HOST': env['mysql']['host'],
+        'PORT': env['mysql']['port'],
     }
 }
 

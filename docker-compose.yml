@@ -1,9 +1,14 @@
-version: "3.7"
+version: "3.8"
 services:
   db:
     container_name: db_server
-    image: mysql:8.1
-    #platform: linux/amd64
+    # For Windows ||||
+    #image: mysql:8.1
+    # For Windows ||||
+    # For Mac ||||
+    image: mariadb
+    platform: linux/amd64
+    # For Mac ||||
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -13,12 +18,18 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - bddata:/var/lib/mysql
-      - ./database/:/docker-entrypoint-initdb.d
+      # For Mac ||||
+      - ./mysql:/var/lib/mysql
+      # For Mac ||||
+      # For windows
+      #- bddata:/var/lib/mysql
+      #- ./database/:/docker-entrypoint-initdb.d
+      # For windows ||||
     networks:
       - platform
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-
+    # For Windows ||||
+    #command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    # For Windows ||||
   django_api:
     container_name: api_server
     hostname: platform_apiserver
@@ -44,10 +55,10 @@ services:
       - platform
     links:
       - django_api
-
-volumes:
-  bddata:
-
+# For Windows ||||
+#volumes:
+#  bddata:
+# For Windows ||||
 networks:
   platform:
     name: platform

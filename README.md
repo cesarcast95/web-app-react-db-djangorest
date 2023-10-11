@@ -91,38 +91,40 @@ https://github.com/ikramdeveloper/react-django-app
 
 # Windows Unix File Convertion
 
-To install dos2unix on Windows, you can use a tool called Cygwin, which provides a Unix-like environment on Windows. Follow these steps to install dos2unix using Cygwin:
+## Instalar dos2unix en Windows
 
-Download and Install Cygwin:
+Para instalar dos2unix en Windows, puedes utilizar una herramienta llamada Cygwin, que proporciona un entorno similar a Unix en Windows. Sigue estos pasos para instalar dos2unix usando Cygwin:
 
-Visit the Cygwin website: https://www.cygwin.com/
-Click on the "Install Cygwin" link.
-Download the Cygwin installer appropriate for your Windows version (32-bit or 64-bit).
-Run the Cygwin Installer:
+1. Descarga e instala Cygwin:
 
-Run the downloaded installer executable (e.g., setup-x86_64.exe for 64-bit systems).
-Follow the installation wizard's instructions.
-Select Packages:
+    - Visita el sitio web de Cygwin: [Cygwin](https://www.cygwin.com/)
+    - Haz clic en el enlace "Install Cygwin".
+    - Descarga el instalador de Cygwin apropiado para tu versión de Windows (32 bits o 64 bits).
 
-During the installation, you'll come to a screen where you can select packages to install. In the "Select Packages" step, you need to find and select the dos2unix package.
+2. Ejecuta el instalador de Cygwin:
 
-Use the search bar and type "dos2unix" to quickly find the package.
+    - Ejecuta el archivo ejecutable del instalador descargado (por ejemplo, setup-x86_64.exe para sistemas de 64 bits).
+    - Sigue las instrucciones del asistente de instalación.
 
-Complete Installation:
+3. Selecciona los paquetes:
 
-Continue through the installation wizard, following the prompts.
-Finish Installation:
+    - Durante la instalación, llegarás a una pantalla donde puedes seleccionar los paquetes para instalar. En el paso "Select Packages", necesitas buscar y seleccionar el paquete dos2unix.
 
-Once the installation is complete, you'll have dos2unix installed in your Cygwin environment.
-Using dos2unix:
+    - Utiliza la barra de búsqueda y escribe "dos2unix" para encontrar rápidamente el paquete.
 
-After Cygwin is installed, you can open the Cygwin terminal, which provides a Unix-like shell on your Windows system.
+4. Completa la instalación:
 
-In the Cygwin terminal, you can use dos2unix as you would on a Unix-based system. For example:
+    - Continúa con el asistente de instalación, siguiendo las indicaciones.
 
+5. Finaliza la instalación:
 
-   dos2unix your_file.txt
+    - Una vez que la instalación esté completa, tendrás dos2unix instalado en tu entorno Cygwin.
 
-Replace your_file.txt with the file you want to convert.
+### Uso de dos2unix:
 
-With dos2unix installed via Cygwin, you can now use it to convert line endings in your files on Windows.
+Después de instalar Cygwin, puedes abrir el terminal de Cygwin, que proporciona una interfaz similar a Unix en tu sistema Windows.
+
+En el terminal de Cygwin, puedes usar dos2unix de la misma manera que lo harías en un sistema basado en Unix. Por ejemplo:
+
+```shell
+dos2unix tu_archivo.txt
